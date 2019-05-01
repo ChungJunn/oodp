@@ -1,3 +1,6 @@
+import login.*;
+import draw.*;
+
 public class MainSystem{
 	
 	public static void main(String[] args) {
@@ -9,10 +12,10 @@ public class MainSystem{
 		
 		System.out.println("[main system] This is main system");
 
-//		loginSystem.run();
+		loginSystem.run();
 		System.out.println("[main system] login was successful");		
 		
-		taskSystem.run();
+		//taskSystem.run();
 
 		//drawing tool (new)
 		drawSystem.run();
