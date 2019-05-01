@@ -9,14 +9,14 @@ class TaskSystem {
 		char menu;
 		String name;
 		String memo;
-    String dueDate;
-    String user;
+		String dueDate;
+		String user;
 
 		while(true){
 			System.out.print("### MENU ###\n"+
 			"1)New Task: n\n"+
 			"2)Show Tasks: s\n"+
-      "3)quit: q\n\n"+
+			"3)quit: q\n\n"+
 			"type in a character: ");
 
 			menu = input.next().charAt(0);
@@ -66,13 +66,13 @@ class TaskSystem {
 class Task {
 	String name;
 	String memo;
-  String dueDate;
-  String user;
+	String dueDate;
+	String user;
 
 	Task(String newName, String newMemo, String newDueDate, String newUser){
 		name = newName;
 		memo = newMemo;
-    dueDate = newDueDate;
-    user = newUser;
+		dueDate = newDueDate;
+		user = newUser;
 	}
 }
