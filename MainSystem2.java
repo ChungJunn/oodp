@@ -17,6 +17,7 @@ import javax.swing.JLabel;
 import java.awt.event.*;
 import draw.*;
 import login.*;
+import schedule.*;
 
 public class MainSystem2 extends JFrame implements ActionListener {
 	JButton btnNoteMemo = new JButton("NoteMemo");
@@ -69,8 +70,7 @@ public class MainSystem2 extends JFrame implements ActionListener {
 			drawSystem.run();
 		}
 		else if(e.getSource() == btnSchedule) {
-			TaskSystem taskSystem = new TaskSystem();
-			taskSystem.run();
+			ScheduleSystem scheduleSystem = new ScheduleSystem();
 		}
 	}
 }

@@ -60,7 +60,7 @@ class TaskSystem {
 
 	int createTask(String name, String memo, String dueDate, String user) {
 		//TODO
-		myList.add(new Task(name, memo, dueDate, user));
+		myList.add(new Task(name, memo, dueDate));
 		return 1;
 	}
 }
@@ -70,10 +70,9 @@ class Task {
 	String dueDate;
 	String user;
 
-	Task(String newName, String newMemo, String newDueDate, String newUser){
+	Task(String newName, String newMemo, String newDueDate){
 		name = newName;
 		memo = newMemo;
 		dueDate = newDueDate;
-		user = newUser;
 	}
 }
