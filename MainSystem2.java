@@ -18,6 +18,7 @@ import java.awt.event.*;
 import draw.*;
 import login.*;
 import schedule.*;
+import java.awt.Font;
 
 public class MainSystem2 extends JFrame implements ActionListener {
 	JButton btnNoteMemo = new JButton("NoteMemo");
@@ -44,22 +45,25 @@ public class MainSystem2 extends JFrame implements ActionListener {
 	 */
 	public MainSystem2() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 700);
+		setBounds(100, 100, 2000, 1500);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		btnNoteMemo.setFont(new Font("±¼¸²", Font.PLAIN, 45));
 		
-		btnNoteMemo.setBounds(114, 183, 191, 43);
+		btnNoteMemo.setBounds(31, 172, 300, 80);
 		contentPane.add(btnNoteMemo);
 		btnNoteMemo.addActionListener(this);
+		btnSchedule.setFont(new Font("±¼¸²", Font.PLAIN, 45));
 		
-		btnSchedule.setBounds(114, 263, 191, 43);
+		btnSchedule.setBounds(31, 277, 300, 80);
 		contentPane.add(btnSchedule);
 		btnSchedule.addActionListener(this);
 		
 		JLabel lblMainMenu = new JLabel("Main Menu");
-		lblMainMenu.setBounds(114, 36, 191, 35);
+		lblMainMenu.setFont(new Font("±¼¸²", Font.PLAIN, 45));
+		lblMainMenu.setBounds(31, 25, 300, 150);
 		contentPane.add(lblMainMenu);
 		
 	}

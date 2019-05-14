@@ -19,7 +19,7 @@ import java.awt.event.ActionListener;
 
 import java.util.ArrayList;
 import java.awt.event.*;
-
+import java.awt.Font;
 
 public class Login extends JFrame {
 	ArrayList<Account> myList;
@@ -55,67 +55,50 @@ public class Login extends JFrame {
 		myList = list;
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 1200, 800);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		GridBagLayout gbl_contentPane = new GridBagLayout();
-		gbl_contentPane.columnWidths = new int[]{0, 0, 0};
-		gbl_contentPane.rowHeights = new int[]{0, 0, 0, 0, 0};
-		gbl_contentPane.columnWeights = new double[]{0.0, 1.0, Double.MIN_VALUE};
-		gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		contentPane.setLayout(gbl_contentPane);
+		contentPane.setLayout(null);
 		
 		JLabel lblId = new JLabel("ID");
-		GridBagConstraints gbc_lblId = new GridBagConstraints();
-		gbc_lblId.insets = new Insets(0, 0, 5, 5);
-		gbc_lblId.anchor = GridBagConstraints.EAST;
-		gbc_lblId.gridx = 0;
-		gbc_lblId.gridy = 0;
-		contentPane.add(lblId, gbc_lblId);
+		lblId.setFont(new Font("±¼¸²", Font.PLAIN, 45));
+		lblId.setBounds(207, 292, 100, 80);
+		contentPane.add(lblId);
 		
 		txtId = new JTextField();
-		GridBagConstraints gbc_txtId = new GridBagConstraints();
-		gbc_txtId.insets = new Insets(0, 0, 5, 0);
-		gbc_txtId.fill = GridBagConstraints.HORIZONTAL;
-		gbc_txtId.gridx = 1;
-		gbc_txtId.gridy = 0;
-		contentPane.add(txtId, gbc_txtId);
+		txtId.setFont(new Font("±¼¸²", Font.PLAIN, 45));
+		txtId.setBounds(424, 292, 400, 80);
+		contentPane.add(txtId);
 		txtId.setColumns(10);
 		
 		lblPasswd = new JLabel("passwd");
-		GridBagConstraints gbc_lblPasswd = new GridBagConstraints();
-		gbc_lblPasswd.insets = new Insets(0, 0, 5, 5);
-		gbc_lblPasswd.anchor = GridBagConstraints.EAST;
-		gbc_lblPasswd.gridx = 0;
-		gbc_lblPasswd.gridy = 1;
-		contentPane.add(lblPasswd, gbc_lblPasswd);
+		lblPasswd.setFont(new Font("±¼¸²", Font.PLAIN, 45));
+		lblPasswd.setBounds(207, 378, 200, 80);
+		contentPane.add(lblPasswd);
 		
 		txtPasswd = new JTextField();
-		GridBagConstraints gbc_txtPasswd = new GridBagConstraints();
-		gbc_txtPasswd.insets = new Insets(0, 0, 5, 0);
-		gbc_txtPasswd.fill = GridBagConstraints.HORIZONTAL;
-		gbc_txtPasswd.gridx = 1;
-		gbc_txtPasswd.gridy = 1;
-		contentPane.add(txtPasswd, gbc_txtPasswd);
+		txtPasswd.setFont(new Font("±¼¸²", Font.PLAIN, 45));
+		txtPasswd.setBounds(424, 378, 400, 80);
+		contentPane.add(txtPasswd);
 		txtPasswd.setColumns(10);
 		
 		btnLogin = new JButton("login");
-		GridBagConstraints gbc_btnLogin = new GridBagConstraints();
-		gbc_btnLogin.insets = new Insets(0, 0, 0, 5);
-		gbc_btnLogin.gridx = 0;
-		gbc_btnLogin.gridy = 3;
-		contentPane.add(btnLogin, gbc_btnLogin);
+		btnLogin.setFont(new Font("±¼¸²", Font.PLAIN, 45));
+		btnLogin.setBounds(293, 483, 200, 80);
+		contentPane.add(btnLogin);
 		btnLogin.addActionListener(loginSystem);
 		
 		btnCreateAccount = new JButton("create account");
-		GridBagConstraints gbc_btnCreateAccount = new GridBagConstraints();
-		gbc_btnCreateAccount.gridx = 1;
-		gbc_btnCreateAccount.gridy = 3;
-		contentPane.add(btnCreateAccount, gbc_btnCreateAccount);
+		btnCreateAccount.setFont(new Font("±¼¸²", Font.PLAIN, 45));
+		btnCreateAccount.setBounds(524, 483, 400, 80);
+		contentPane.add(btnCreateAccount);
+		
+		JLabel lblLoginForm = new JLabel("Login Form");
+		lblLoginForm.setFont(new Font("±¼¸²", Font.PLAIN, 45));
+		lblLoginForm.setBounds(352, 132, 472, 100);
+		contentPane.add(lblLoginForm);
 		btnCreateAccount.addActionListener(loginSystem);
-		
-		
 	}
 	
   int login(String id, String passwd) {

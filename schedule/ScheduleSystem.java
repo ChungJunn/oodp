@@ -17,6 +17,7 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import java.awt.event.*;
 import java.util.ArrayList;
+import java.awt.Font;
 
 
 public class ScheduleSystem extends JFrame implements ActionListener{
@@ -58,63 +59,70 @@ public class ScheduleSystem extends JFrame implements ActionListener{
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		txtMemo.setBounds(1113, 254, 368, 232);
+		txtMemo.setBounds(947, 263, 534, 232);
 		contentPane.add(txtMemo);
 		btnCreate.addActionListener(this);
 		
-		btnCreate.setBounds(1275, 499, 206, 43);
+		btnCreate.setBounds(1181, 520, 300, 80);
 		contentPane.add(btnCreate);
 		
 		txtTitle = new JTextField();
-		txtTitle.setBounds(1294, 112, 187, 41);
+		txtTitle.setBounds(1181, 105, 300, 60);
 		contentPane.add(txtTitle);
 		txtTitle.setColumns(10);
 		
 		txtDueDate = new JTextField();
-		txtDueDate.setBounds(1294, 171, 187, 41);
+		txtDueDate.setBounds(1181, 170, 300, 60);
 		contentPane.add(txtDueDate);
 		txtDueDate.setColumns(10);
 		
 		JLabel lblDueDate = new JLabel("Due Date");
-		lblDueDate.setBounds(1126, 174, 355, 35);
+		lblDueDate.setFont(new Font("±¼¸²", Font.PLAIN, 45));
+		lblDueDate.setBounds(955, 169, 355, 35);
 		contentPane.add(lblDueDate);
 		
 		JLabel lblMemo = new JLabel("Memo");
-		lblMemo.setBounds(1109, 216, 372, 35);
+		lblMemo.setFont(new Font("±¼¸²", Font.PLAIN, 45));
+		lblMemo.setBounds(937, 223, 372, 35);
 		contentPane.add(lblMemo);
 		
 		JLabel label = new JLabel("\uC77C\uC815\uB4F1\uB85D");
+		label.setFont(new Font("±¼¸²", Font.PLAIN, 45));
 		label.setBounds(1045, 45, 436, 35);
 		contentPane.add(label);
 		
 		JLabel label_1 = new JLabel("\uC77C\uC815");
-		label_1.setBounds(721, 45, 137, 35);
+		label_1.setFont(new Font("±¼¸²", Font.PLAIN, 45));
+		label_1.setBounds(476, 45, 137, 35);
 		contentPane.add(label_1);
 		
 		textField = new JTextField();
-		textField.setBounds(658, 112, 266, 41);
+		textField.setBounds(658, 112, 266, 60);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(658, 171, 266, 41);
+		textField_1.setBounds(658, 185, 266, 60);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 		
 		JTextArea textArea = new JTextArea();
-		textArea.setBounds(567, 263, 357, 203);
+		textArea.setBounds(486, 292, 438, 203);
 		contentPane.add(textArea);
 		
 		JLabel lblName_1 = new JLabel("Name");
-		lblName_1.setBounds(519, 115, 137, 35);
+		lblName_1.setFont(new Font("±¼¸²", Font.PLAIN, 45));
+		lblName_1.setBounds(476, 130, 137, 35);
 		contentPane.add(lblName_1);
 		
 		JLabel lblDuedate = new JLabel("DueDate");
-		lblDuedate.setBounds(519, 174, 137, 35);
+		lblDuedate.setFont(new Font("±¼¸²", Font.PLAIN, 45));
+		lblDuedate.setBounds(476, 195, 181, 35);
 		contentPane.add(lblDuedate);
 		
 		JLabel lblMemo_1 = new JLabel("Memo");
-		lblMemo_1.setBounds(567, 223, 137, 35);
+		lblMemo_1.setFont(new Font("±¼¸²", Font.PLAIN, 45));
+		lblMemo_1.setBounds(476, 252, 137, 35);
 		contentPane.add(lblMemo_1);
 		
 		JList list = new JList();
@@ -122,8 +130,14 @@ public class ScheduleSystem extends JFrame implements ActionListener{
 		contentPane.add(list);
 		
 		JLabel lblmySchedule = new JLabel("\uB098\uC758\uC77C\uC815");
-		lblmySchedule.setBounds(52, 118, 137, 35);
+		lblmySchedule.setFont(new Font("±¼¸²", Font.PLAIN, 45));
+		lblmySchedule.setBounds(52, 118, 219, 35);
 		contentPane.add(lblmySchedule);
+		
+		JLabel lblName = new JLabel("Name");
+		lblName.setFont(new Font("±¼¸²", Font.PLAIN, 45));
+		lblName.setBounds(1017, 112, 137, 35);
+		contentPane.add(lblName);
 		
 		setVisible(true);
 	}
