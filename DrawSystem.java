@@ -5,17 +5,16 @@ import java.io.*;
 import javax.swing.*;
 
 public class DrawSystem extends JFrame {
-	public DrawSystem() {
-		setTitle("Drawing Pad");
-		canvas = new ScribbleCanvas();
+	
+	public DrawSystem(String title) {
+		super(title);
+		
+		// calling factory method
+		canvas = makeCanvas();
 		getContentPane().setLayout(new BorderLayout());
-		getContentPane().add(CreateMenuBar(), BorderLayout.NORTH);
-		getContentPane().add(canvas,  BorderLayout.CENTER);
-		
-//		canvas.setBackground(Color.white);
-//		getContentPane().setLayout(new BorderLayout());
-//		getContentPane().add(canvas,  BorderLayout.CENTER);
-		
+		menuBar = CreateMenuBar();
+		getContentPane().add(menuBar, BorderLayout.NORTH);
+		getContentPane().add(canvas, BorderLayout.CENTER);
 		addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
 				if(exitAction != null) {
@@ -23,34 +22,36 @@ public class DrawSystem extends JFrame {
 				}
 			}
 		});
-		
-//		<createMenuBar() method on page 411>
-//		<newFile(), openFile(), saveFile(), and saveFileAs() method on page 416>
-		
-	} 
-	
-	public void run() {
-		int drawing_w = 600;
-		int drawing_h = 400;
-		JFrame frame = new DrawSystem();
-		frame.setSize(drawing_w, drawing_h);
-		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		frame.setLocation(screenSize.width/2 - drawing_w/2, screenSize.height/2 - drawing_h/2);
-		frame.show();
 	}
-	
-
-	protected String currentFilename = null;
-	protected ScribbleCanvas canvas;
-	protected ActionListener exitAction;
-	protected JFileChooser chooser = new JFileChooser(".");
-	
+//	public DrawSystem() {
+//		setTitle("Drawing Pad");
+//		canvas = new ScribbleCanvas();
+//		getContentPane().setLayout(new BorderLayout());
+//		getContentPane().add(CreateMenuBar(), BorderLayout.NORTH);
+//		getContentPane().add(canvas,  BorderLayout.CENTER);
+//		
+////		canvas.setBackground(Color.white);
+////		getContentPane().setLayout(new BorderLayout());
+////		getContentPane().add(canvas,  BorderLayout.CENTER);
+//		
+//		addWindowListener(new WindowAdapter() {
+//			public void windowClosing(WindowEvent e) {
+//				if(exitAction != null) {
+//					exitAction.actionPerformed(new ActionEvent(DrawSystem.this, 0, null));
+//				}
+//			}
+//		});
+//		
+////		<createMenuBar() method on page 411>
+////		<newFile(), openFile(), saveFile(), and saveFileAs() method on page 416>
+//		
+//	} 
 	protected JMenuBar CreateMenuBar() {
 		JMenuBar menuBar = new JMenuBar();
 		JMenu menu;
 		JMenuItem mi;
 		
-		// FIle menu
+		// File menu
 		menu = new JMenu("File");
 		menuBar.add(menu);
 		
@@ -85,6 +86,14 @@ public class DrawSystem extends JFrame {
 		menu.add(mi);
 		mi.addActionListener(new ColorListener());
 		
+		// new - tools
+		menu = new JMenu("Tool");
+		menuBar.add(menu);
+			
+		mi = new JMenuItem("Clear");
+		menu.add(mi);
+		mi.addActionListener(new ClearListener());
+				
 		//horizontal space
 		menuBar.add(Box.createHorizontalGlue());
 		
@@ -99,6 +108,29 @@ public class DrawSystem extends JFrame {
 		return menuBar;
 		
 	}
+	
+	// factory method
+	protected ScribbleCanvas makeCanvas() {
+		return new ScribbleCanvas();
+	}
+	
+	public void run() {
+//	public static void main(String[] args) {
+		int drawing_w = 1000; //600;
+		int drawing_h = 800;  //400;
+		JFrame frame = new DrawSystem("Drawing Pad");
+		frame.setSize(drawing_w, drawing_h);
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		frame.setLocation(screenSize.width/2 - drawing_w/2, screenSize.height/2 - drawing_h/2);
+		frame.show();
+	}
+	
+	protected String currentFilename = null;
+	protected ScribbleCanvas canvas;
+	protected ActionListener exitAction;
+	protected JFileChooser chooser = new JFileChooser(".");
+	
+	
 	
 	class AboutListener implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
@@ -146,6 +178,13 @@ public class DrawSystem extends JFrame {
 		}
 	}
 	
+	class ClearListener implements ActionListener{
+		public void actionPerformed(ActionEvent e) {
+			clear();
+		}
+	}
+	
+	
 	class ExitListener implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 			int result = JOptionPane.showConfirmDialog(null, "Do you want to exit Drawing pad?", "Exit Drawing Pad?", JOptionPane.YES_NO_OPTION);
@@ -155,6 +194,11 @@ public class DrawSystem extends JFrame {
 			}
 			
 		}
+	}
+	
+	
+	protected void clear() {
+		canvas.clear();
 	}
 	
 	protected void newFile() {
@@ -194,5 +238,6 @@ public class DrawSystem extends JFrame {
 		protected ColorDialog dialog = new ColorDialog(DrawSystem.this, "Choose color", canvas.getCurColor());
 	}
 	
+	JMenuBar menuBar = new JMenuBar();
 
 }
